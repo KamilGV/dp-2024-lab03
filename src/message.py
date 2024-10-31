@@ -11,6 +11,9 @@ class CommonMessage(IMessage):
     def get_message(self):
         return self._message
 
+    def print(self):
+        print(self._message)
+
 
 class MessageDecorator(IMessage):
     def __init__(self, message: IMessage):
@@ -18,6 +21,9 @@ class MessageDecorator(IMessage):
 
     def get_message(self):
         return self._message.get_message()
+
+    def print(self):
+        print(self.get_message())
 
 
 class MessageWithHeader(MessageDecorator):
