@@ -5,6 +5,7 @@ from src.message import CommonMessage, MessageWithDate, MessageWithFooter, Messa
 
 
 def test_common_message():
+    """ Проверка корректности класса CommonMessage"""
     test_message = 'Тестовое сообщение'
     message = CommonMessage(test_message)
     return_message = message.get_message()
