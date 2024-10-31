@@ -12,6 +12,7 @@ def test_common_message():
 
 
 def test_message_with_date():
+    """ Проверка корректности декоратора с хедером"""
     test_message = 'Тестовое сообщение'
     message = MessageWithDate(CommonMessage(test_message))
     return_message = message.get_message()
@@ -19,6 +20,7 @@ def test_message_with_date():
 
 
 def test_message_with_footer():
+    """ Проверка корректности декоратора с футером"""
     test_message = 'Тестовое сообщение'
     message = MessageWithFooter(CommonMessage(test_message))
     return_message = message.get_message()
@@ -26,6 +28,7 @@ def test_message_with_footer():
 
 
 def test_message_with_header():
+    """ Проверка корректности декоратора с датой"""
     test_message = 'Тестовое сообщение'
     message = MessageWithHeader(CommonMessage(test_message))
     return_message = message.get_message()
@@ -33,6 +36,7 @@ def test_message_with_header():
 
 
 def test_message_in_base64():
+    """ Проверка корректности декоратора с преобразованием в base64"""
     test_message = 'Тестовое сообщение'
     message = MessageInBase64(CommonMessage(test_message))
     return_message = message.get_message()
