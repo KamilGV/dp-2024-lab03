@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Запускаем тесты при старте контейнера
-CMD ["pytest", "src/tests/"]
+RUN python -m pytest src/tests/test_messages.py
