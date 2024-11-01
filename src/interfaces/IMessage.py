@@ -10,14 +10,15 @@ class IMessage(ABC):
         print(): Выводит сообщение в консоль
     """
 
+    @property
     @abstractmethod
-    def get_message(self) -> str:
+    def message(self) -> str:
         """
         Метод для получение сообщения.
 
         :return: Сообщение.
         """
-        pass
+        raise NotImplemented
 
     @abstractmethod
     def print(self):
@@ -25,4 +26,4 @@ class IMessage(ABC):
         Метод для вывода сообщения в консоль.
         :return: None.
         """
-        pass
+        raise NotImplemented

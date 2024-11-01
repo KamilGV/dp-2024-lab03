@@ -13,9 +13,16 @@ class CommonMessage(IMessage):
         print(): Выводит сообщение в консоль
     """
     def __init__(self, message: str):
+        """
+        Иницализатор класса для сообщений.
+
+        :param message: Строка.
+        :return: None.
+        """
         self._message = message
 
-    def get_message(self):
+    @property
+    def message(self):
         """
         Метод для получение сообщения.
 
@@ -36,22 +43,34 @@ class MessageDecorator(IMessage):
     Базовый декоратор для сообщений
 
         Методы:
-        get_message(): Возвращает сообщение
+        message: Возвращает сообщение
         print(): Выводит сообщение в консоль
     """
     def __init__(self, message: IMessage):
+        """
+        Иницализатор декоратора для сообщений.
+
+        :param message: Строка.
+        :return: None.
+        """
         self._message = message
 
-    def get_message(self):
+    @property
+    def message(self):
         """
         Метод для получение сообщения.
 
         :return: Сообщение.
         """
-        return self._message.get_message()
+        return self._message.message
 
     def print(self):
-        print(self.get_message())
+        """
+        Иницализатор класса для сообщений.
+
+        :return: Сообщение.
+        """
+        print(self.message)
 
 
 class MessageWithHeader(MessageDecorator):
@@ -59,16 +78,17 @@ class MessageWithHeader(MessageDecorator):
      Декоратор добавлющий заголовок к сообщению
 
         Методы:
-        get_message(): Возвращает сообщение с заголовком
+        message: Возвращает сообщение с заголовком
         print(): Выводит сообщение с заголовком в консоль
     """
-    def get_message(self):
+    @property
+    def message(self):
         """
         Метод для получение сообщения c хедером.
 
         :return: Сообщение.
         """
-        return "Добрый день,\n" + self._message.get_message()
+        return "Добрый день,\n" + self._message.message
 
 
 class MessageWithFooter(MessageDecorator):
@@ -76,16 +96,17 @@ class MessageWithFooter(MessageDecorator):
      Декоратор добавлющий футер к сообщению
 
         Методы:
-        get_message(): Возвращает сообщение с футером
+        message: Возвращает сообщение с футером
         print(): Выводит сообщение с футером в консоль
     """
-    def get_message(self):
+    @property
+    def message(self):
         """
         Метод для получение сообщения с футером.
 
         :return: Сообщение.
         """
-        return self._message.get_message() + "\nДед Мороз"
+        return self._message.message + "\nДед Мороз"
 
 
 class MessageWithDate(MessageDecorator):
@@ -93,16 +114,17 @@ class MessageWithDate(MessageDecorator):
      Декоратор добавлющий дату к сообщению
 
         Методы:
-        get_message(): Возвращает сообщение с датой
+        message: Возвращает сообщение с датой
         print(): Выводит сообщение с датой в консоль
     """
-    def get_message(self):
+    @property
+    def message(self):
         """
         Метод для получение сообщения с датой.
 
         :return: Сообщение.
         """
-        return self._message.get_message() + "\n" + self._get_date_str()
+        return self._message.message + "\n" + self._get_date_str()
 
     @staticmethod
     def _get_date_str():
@@ -114,16 +136,17 @@ class MessageInBase64(MessageDecorator):
      Декоратор преобразующий сообщение в base64
 
         Методы:
-        get_message(): Возвращает сообщение в base64
+        message: Возвращает сообщение в base64
         print(): Выводит сообщение в base64 в консоль
     """
-    def get_message(self):
+    @property
+    def message(self):
         """
         Метод для получение сообщения в base64.
 
         :return: Сообщение.
         """
-        return self._convert_in_base64(self._message.get_message())
+        return self._convert_in_base64(self._message.message)
 
     @staticmethod
     def _convert_in_base64(message):
