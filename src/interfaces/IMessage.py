@@ -10,9 +10,8 @@ class IMessage(ABC):
         print(): Выводит сообщение в консоль
     """
 
-    @property
     @abstractmethod
-    def message(self) -> str:
+    def get_message(self) -> str:
         """
         Метод для получение сообщения.
 

@@ -1,1 +1,8 @@
-from .message import CommonMessage, MessageDecorator, MessageWithHeader, MessageWithFooter, MessageWithDate, MessageInBase64
+from .message import (
+    CommonMessage,
+    MessageDecorator,
+    MessageWithHeader,
+    MessageWithFooter,
+    MessageWithDate,
+    MessageInBase64,
+)
